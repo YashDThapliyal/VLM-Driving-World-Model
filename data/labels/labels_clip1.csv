@@ -1,0 +1,16 @@
+frame_id,affordance,yield_to,lead_state
+clip1/frame_0001.jpg,wait,lead,moving
+clip1/frame_0003.jpg,wait,lead,stopped
+clip1/frame_0005.jpg,wait,lead,stopped
+clip1/frame_0007.jpg,wait,lead,stopped
+clip1/frame_0009.jpg,stop,lead,stopped
+clip1/frame_0011.jpg,stop,lead,stopped
+clip1/frame_0013.jpg,stop,lead,stopped
+clip1/frame_0015.jpg,stop,ped,none
+clip1/frame_0017.jpg,stop,ped,none
+clip1/frame_0019.jpg,stop,ped,none
+clip1/frame_0021.jpg,stop,ped,none
+clip1/frame_0023.jpg,go,none,none
+clip1/frame_0025.jpg,go,none,none
+clip1/frame_0027.jpg,wait,lead,stopped
+clip1/frame_0029.jpg,go,none,none

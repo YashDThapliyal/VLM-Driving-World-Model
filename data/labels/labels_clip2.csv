@@ -1,0 +1,9 @@
+frame_id,affordance,yield_to,lead_state
+clip2/frame_0001.jpg,go,lead,moving
+clip2/frame_0004.jpg,go,none,none
+clip2/frame_0007.jpg,go,none,none
+clip2/frame_0010.jpg,go,none,none
+clip2/frame_0013.jpg,go,lead,moving
+clip2/frame_0016.jpg,go,lead,moving
+clip2/frame_0019.jpg,go,none,none
+clip2/frame_0020.jpg,go,lead,moving
