@@ -1,18 +1,26 @@
 # Driving World Model (DWM)
 
-Modern autonomous driving systems increasingly use end-to-end neural networks that map sensory input directly to control actions. These approaches are powerful but provide limited access to intermediate reasoning. 
+Modern autonomous driving systems increasingly use end-to-end neural networks that map sensory input directly to control actions. These approaches are powerful but provide limited access to intermediate reasoning.
 
-This project makes that intermediate layer explicit: a Vision-Language Model (VLM) converts dashcam video into **symbolic world states** that describe:
-- **affordances** (go, wait, stop)
-- **yield relations** (none, lead, pedestrian)
-- **lead vehicle dynamics** (moving, stopped)
+This project makes that intermediate layer explicit. A Vision-Language Model (VLM) converts dashcam video into **symbolic world states** describing **what the ego vehicle can do**, **what it must yield to**, and **how other agents behave**. These raw world-state predictions are then temporally smoothed, segmented into behavioral phases, and translated into higher-level decisions with short natural language glosses.
 
-These predictions are then temporally smoothed, segmented into behavioral phases, translated into planner commands, and paired with short natural language glosses.
-
-The outcome of all these layers is an interpretable **Driving World Model** that bridges perception and planning and can be visualized. See the [Demo Video](https://raw.githubusercontent.com/YashDThapliyal/VLM-Driving-World-Model/main/driving_world_model_demo.mp4)
+Together, these layers form an interpretable **Driving World Model** that infers what the car should do next and can be visualized. See the [Demo Video](https://raw.githubusercontent.com/YashDThapliyal/VLM-Driving-World-Model/main/driving_world_model_demo.mp4)
 
 
 ![demo](https://github.com/user-attachments/assets/efe50c51-376c-4db4-950b-78c0a1f440b9)
+
+### Clarification: Not Just Object Detection
+
+Object detection answers: **"What objects are present?"**  
+A world model answers: **"What do those objects mean for the ego vehicle?"**
+
+Examples:
+- "yield to that pedestrian"
+- "follow that car until it moves"
+- "stop for crosswalk, then go"
+
+In the visuals, the green box indicates the decision target: the agent that constrains the ego vehicle (such as a pedestrian or lead vehicle), rather than just objects detected in the scene. This helps visualize how the ego vehicle makes decisions (stopping for a pedestrian or following a lead vehicle).
+
 
 
 ## What This Does
@@ -26,18 +34,6 @@ This system answers three key questions about any driving scene:
 | What is the lead vehicle doing? | `lead_state` | none / moving / stopped |
 
 Unlike end-to-end driving networks that output raw control signals, this produces **symbolic, human-readable states** that bridge perception and planning—enabling reasoning, debugging, and human validation.
-
-### This is not just Object Detection
-
-**Object detection answers:** "What objects are present?"
-
-**A world model answers:** "What do those objects mean for the ego vehicle?"
-
-For example:
-- "yield to that pedestrian"
-- "follow that car until it moves"
-
-This semantic layer provides the cognitive bridge between perception and planning.
 
 ## Pipeline Overview
 
