@@ -2,26 +2,26 @@
 
 Modern autonomous driving systems increasingly use end-to-end neural networks that map sensory input directly to control actions. These approaches are powerful but provide limited access to intermediate reasoning.
 
-This project makes that intermediate layer explicit. A Vision-Language Model (VLM) converts dashcam video into **symbolic world states** describing **what the ego vehicle can do**, **what it must yield to**, and **how other agents behave**. These raw world-state predictions are then temporally smoothed, segmented into behavioral phases, and translated into higher-level decisions with short natural language glosses.
+This project makes that intermediate layer explicit. A 7-stage pipeline converts dashcam video into symbolic world states describing **action feasibility** (what the ego vehicle can do), **yield constraints** (what it must yield to), and **agent behavior** (how surrounding actors move). These frame-level predictions are then temporally smoothed, segmented into behavioral phases, and translated into higher-level driving decisions in natural language.
 
 Together, these layers form an interpretable **Driving World Model** that infers what the car should do next and can be visualized. See the [Demo Video](https://raw.githubusercontent.com/YashDThapliyal/VLM-Driving-World-Model/main/driving_world_model_demo.mp4)
 
 
 ![demo](https://github.com/user-attachments/assets/efe50c51-376c-4db4-950b-78c0a1f440b9)
 
-### Clarification: Not Just Object Detection
+### Object Detection vs World Modeling
 
 Object detection answers: **"What objects are present?"**  
 A world model answers: **"What do those objects mean for the ego vehicle?"**
 
-Examples:
-- "yield to that pedestrian"
-- "follow that car until it moves"
-- "stop for crosswalk, then go"
+In this project, the green box highlights the **decision target**: the agent that constrains the ego vehicle (for example a pedestrian or a lead vehicle). This illustrates the reason behind the ego vehicle's behavior such as stopping for a pedestrian or following a lead car.
 
-In the visuals, the green box indicates the decision target: the agent that constrains the ego vehicle (such as a pedestrian or lead vehicle), rather than just objects detected in the scene. This helps visualize how the ego vehicle makes decisions (stopping for a pedestrian or following a lead vehicle).
+Examples of world model outputs:
+- "yield to that specific pedestrian"
+- "follow that silver sedan in front until it moves"
+- "stop for the crosswalk, then go"
 
-
+The Driving World Model interprets how scene elements constrain driving behavior, enabling decisions like yielding, stopping, or following.
 
 ## What This Does
 
