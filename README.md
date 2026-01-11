@@ -1,4 +1,4 @@
-# Driving World Model (DWM)
+# Autonomous Driving World Model (DWM)
 
 Modern autonomous driving systems increasingly use end-to-end neural networks that map sensory input directly to control actions. These approaches are powerful but provide limited access to intermediate reasoning.
 
