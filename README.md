@@ -1,6 +1,15 @@
 # Driving World Model
 
-A semantic world model for autonomous driving that transforms dashcam video into interpretable, planner-friendly world states using vision-language models.
+Modern autonomous driving systems increasingly use end-to-end neural networks that map sensory input directly to control actions. These approaches are powerful but provide limited access to intermediate reasoning. Classical robotics pipelines decompose perception, planning, and control into modular components, enabling transparency and debugging at the cost of manual subsystem engineering.
+
+This project takes a hybrid approach. A Vision-Language Model (VLM) converts dashcam video into **symbolic world states** that describe:
+- **affordances** (go, wait, stop)
+- **yield relations** (none, lead, pedestrian)
+- **lead vehicle dynamics** (moving, stopped)
+
+These predictions are then temporally smoothed, segmented into behavioral phases, translated into planner commands, and paired with short natural language glosses.
+
+The outcome is an interpretable **Driving World Model ** that bridges perception and planning and can be visualized.
 
 ## What This Does
 
