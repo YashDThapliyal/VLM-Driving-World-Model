@@ -11,6 +11,8 @@ These predictions are then temporally smoothed, segmented into behavioral phases
 
 The outcome is an interpretable **Driving World Model** that bridges perception and planning and can be visualized. See the [Demo Video](https://raw.githubusercontent.com/YashDThapliyal/VLM-Driving-World-Model/main/driving_world_model_demo.mp4)
 
+![demo](https://github.com/user-attachments/assets/376e3e04-2bf5-4b14-aab6-09b45a33c00a)
+
 
 ## What This Does
 
